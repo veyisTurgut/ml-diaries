@@ -34,7 +34,7 @@ dataset.drop(dataset[
 #     seaborn.countplot(x=column, hue="y", data=dataset)
 #     plt.show()
 ###################### Scaling
-### Finally we should scale float and integer values
+### We should scale float and integer values
 
 from sklearn.preprocessing import StandardScaler
 
@@ -48,7 +48,7 @@ scaled_features[scale_columns] = features
 dataset = scaled_features
 del scaled_features
 
-## Replace "yes-no"s with 0-1 and get dummies ( encode ) string values
+## Replace "yes-no"s with 0-1 and get dummies for ( encode ) string values
 dataset.replace({"yes": 1, "no": 0}, inplace=True)
 for column in ["job", "marital", "education", "contact", "month", "poutcome"]:
     newdf = pandas.get_dummies(dataset[column], drop_first=True, prefix=column)
